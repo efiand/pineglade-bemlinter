@@ -1,0 +1,28 @@
+{
+	"name": "posthtml-bem-linter",
+	"version": "0.1.3",
+	"description": "Pure function and posthtml plugin for linting a bem html.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/efiand/posthtml-bem-linter.git"
+	},
+	"keywords": [
+		"bem",
+		"bem linter"
+	],
+	"author": "efiand",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/efiand/posthtml-bem-linter/issues"
+	},
+	"homepage": "https://efiand.github.io/posthtml-bem-linter",
+	"dependencies": {
+		"chalk": "4.1.2",
+		"node-html-parser": "6.1.4",
+		"posthtml-render": "1.4.0"
+	}
+}
