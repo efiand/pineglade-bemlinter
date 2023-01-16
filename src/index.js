@@ -180,12 +180,21 @@ function htmlBemlinter({ content, modifier = '--' }) {
 	};
 }
 
-module.exports = ({ name, content, log = console, modifier = '--' }) => {
+module.exports = ({ name, content, log = console, logInPlace = true, modifier = '--' }) => {
 	const { warningCount, treeAst } = htmlBemlinter({ name, content, modifier });
 
 	if (warningCount) {
-		log.warn(generateAnciiTree(treeAst));
-		log.error(`BEM linting: ${warningCount} error${warningCount > 1 ? 's' : ''} found in ${name}`);
-		process.exitCode = 1;
+		const outputAppend = `BEM linting: ${warningCount} error${warningCount > 1 ? 's' : ''} found in ${name}`;
+		const output = generateAnciiTree(treeAst);
+
+		if (logInPlace) {
+			log.warn(output);
+			log.error(outputAppend);
+			process.exitCode = 1;
+		}
+
+		return `${output}\n${outputAppend}`;
 	}
+
+	return '';
 };
